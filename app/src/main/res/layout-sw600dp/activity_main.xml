@@ -1,0 +1,35 @@
+<!--
+This layout is a two-pane layout for the Items master/detail flow.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="horizontal"
+    tools:context="com.example.leo.popmovies.MainActivity">
+
+    <!--
+    Below fragment is static since we explicitly define that the fragment contains an instance of
+    MovieGridFragment in the xml layout and it is not meant to change.
+    -->
+    <fragment
+        android:id="@+id/fragment_movie"
+        android:name="com.example.mahmoudashraaf.movies.MovieGridFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@android:layout/list_content" />
+    <!--
+    Below fragment is dynamic since every time the user clicks a item, the fragment’s contents
+     will be a new DetailFragment.
+    -->
+    <FrameLayout
+        android:id="@+id/movie_detail_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+</LinearLayout>
